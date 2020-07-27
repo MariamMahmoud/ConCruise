@@ -7,7 +7,8 @@
     "test": "mocha test/**/*.js --exit",
     "start": "node server.js",
     "docker-build": "docker-compose up --build",
-    "docker-bash": "docker exec -it ConCruse_web_1 bash"
+    "docker-bash": "docker exec -it concruse_web_1 bash",
+    "docker-down": "docker-compose down --rmi local"
   },
   "repository": {
     "type": "git",

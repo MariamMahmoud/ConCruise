@@ -1,6 +1,6 @@
 'use strict';
 
-const app = require('./src/Routes');
+const app = require('./src/Routes/users');
 
 const mongoose = require('mongoose');
 const connection = 'mongodb://mongo:27017/conCruse-db';

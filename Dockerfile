@@ -4,4 +4,4 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 8080
-CMD [ "npm", "docker-bash" ]
+CMD npm start
