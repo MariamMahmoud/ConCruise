@@ -16,21 +16,27 @@ const userSchema = new mongoose.Schema(
         rating: {
             type: Number,
             default: 0,
+            min: 1,
+            max: 5,
         },
         number_of_rides: {
             type: Number,
             default: 0,
         },
         current_location: {
-            lat: {
+            latitude: {
                 type: Number,
                 required: true,
             },
-            long: {
+            longitude: {
                 type: Number,
                 required: true,
             },
         },
+        matched: {
+            type: Boolean,
+            default: false
+        }
     },
     { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }},
 );
