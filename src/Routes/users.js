@@ -8,7 +8,6 @@ const app = express();
 const usersController = require('../Controllers/users');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
-const { response } = require('express');
 
 // TODO: add authorization middleware
 // TODO add validations to avoid crashing
@@ -20,13 +19,13 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.get('/shrug', async(req, res) => {
 	res.send({
 		connected: true,
-		shrug: '¯\_(ツ)_/\¯',
-	})
+		shrug: '¯\\_(ツ)_/¯',
+	});
 });
 
 app.post('/user', async(req, res) => {
-    const user = _.get(req.body, 'user');
-    try {
+	const user = _.get(req.body, 'user');
+	try {
 		const response = await usersController.create(user);
 		res.send({
 			success: true,
@@ -47,8 +46,8 @@ app.post('/user', async(req, res) => {
 });
 
 app.patch('/user', async(req, res) => {
-    const user = _.get(req.body, 'user');
-    try{
+	const user = _.get(req.body, 'user');
+	try{
 		const response = await usersController.update(user);
 
 		res.send({
@@ -70,8 +69,8 @@ app.patch('/user', async(req, res) => {
 });
 
 app.delete('/user', async(req, res) => {
-    const userIds = _.get(req.body, 'userIds');
-    try{
+	const userIds = _.get(req.body, 'userIds');
+	try{
 		const response = await usersController.delete(userIds);
 
 		res.send({

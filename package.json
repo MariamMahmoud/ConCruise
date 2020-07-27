@@ -6,6 +6,8 @@
   "scripts": {
     "test": "mocha test/**/*.js --exit",
     "start": "node server.js",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint . --fix",
     "docker-build": "docker-compose up --build",
     "docker-bash": "docker exec -it concruse_web_1 bash",
     "docker-down": "docker-compose down --rmi local"
@@ -22,7 +24,9 @@
   "homepage": "https://github.com/MariamMahmoud/ConCruse#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "eslint": "^7.5.0",
     "express": "^4.17.1",
+    "geolib": "^3.3.1",
     "mongoose": "^5.6.1"
   },
   "devDependencies": {

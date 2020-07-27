@@ -21,7 +21,7 @@ module.exports = async() => {
         // so it is a business decision what to compromise here
         // Another suggestion is to set a threshold, once we get a cruiser that fits this threshold we don't need to continue to loop through all of them,
         // we will match this one and compromise the best match for the sake of a faster yet still good match
-        const cruisers = await _findNotMatching('cruiser');
+        let cruisers = await _findNotMatching('cruiser');
 
         cruisers.forEach(cruiser => {
             let currentScore = calculateScore(rider, cruiser);
