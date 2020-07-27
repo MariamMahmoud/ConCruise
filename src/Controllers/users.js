@@ -5,9 +5,9 @@ const Users = require('../Models/user');
 // TODO: add validations to avoid crashing
 
 module.exports = {
-	create: async user=> {
+	create: async user => {
         try {
-            return await Users.create(user)
+            return await Users.create(user);
         } catch(error) {
             const err = {
                 name: 'Create user crashed',
@@ -56,4 +56,8 @@ module.exports = {
             throw err;
         }
     },
+
+    findAll: async() => Users.find({}),
+
+    findByQuery: async(query) => Users.find(query).exec(),
 };
