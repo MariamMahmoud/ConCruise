@@ -26,6 +26,8 @@ const seed = async() => {
 	console.log(
 		`Data Seeded Successfully!! Inserted ${savedCustomers.length} customers and  ${savedCruisers.length} Cruiser.`
 	);
+
+	return true;
 };
 
 seed();
