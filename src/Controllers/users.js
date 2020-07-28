@@ -57,7 +57,5 @@ module.exports = {
 		}
 	},
 
-	findAll: async() => Users.find({}),
-
 	findByQuery: async(query) => Users.find(query).exec(),
 };
