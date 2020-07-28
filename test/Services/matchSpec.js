@@ -3,7 +3,7 @@
 
 const match = require('../../src/Services/match');
 const usersController = require('../../src/Controllers/users');
-const { expect, connectDB, disconnectDB, flushDB } = require('../Helpers/helper');
+const { expect, connectDB, disconnectDB, flushDB, wait } = require('../Helpers/helper');
 
 describe('Services/match', () => {
 	const rider ={
@@ -32,10 +32,9 @@ describe('Services/match', () => {
 
 	before(async() => {
 		await connectDB();
-		await setTimeout(() => {}, 10000);
+		await wait();
 		await flushDB();
-		await setTimeout(() => {}, 10000);
-
+		await wait();
 		// Create a pool of riders and cruisers
 		new Array(4).fill(1).forEach(async() => {
 			await usersController.create(rider);

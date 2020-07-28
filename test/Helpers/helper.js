@@ -14,4 +14,5 @@ module.exports = {
 		await mongoose.connect('mongodb://mongo:27017/conCruse-test-db'),
 	disconnectDB: async() => await mongoose.disconnect(),
 	flushDB: async() => await Users.deleteMany({}),
+	wait: async(ms = 10000) => await setTimeout(() => {}, ms),
 };

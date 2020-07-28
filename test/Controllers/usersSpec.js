@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const usersController = require('../../src/Controllers/users');
-const { expect, connectDB, disconnectDB, flushDB } = require('../Helpers/helper');
+const { expect, connectDB, disconnectDB, flushDB, wait } = require('../Helpers/helper');
 const _ = require('lodash');
 
 describe('Controllers/Users', () => {
@@ -18,10 +18,9 @@ describe('Controllers/Users', () => {
 
 	before(async() => {
 		await connectDB();
-		await setTimeout(() => {}, 10000);
+		await wait();
 		await flushDB();
-		await setTimeout(() => {}, 10000);
-
+		await wait();
 	});
 
 	after(async() => {
