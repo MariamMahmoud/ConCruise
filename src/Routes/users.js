@@ -6,15 +6,16 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const usersController = require('../Controllers/users');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger.json');
 
 // TODO: add authorization middleware
 // TODO add validations to avoid crashing
+// TODO: add swagger docs
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/shrug', async(req, res) => {
 	res.send({
