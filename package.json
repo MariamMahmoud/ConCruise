@@ -11,7 +11,8 @@
     "docker-build": "docker-compose up --build",
     "docker-bash": "docker exec -it concruse_web_1 bash",
     "docker-down": "docker-compose down --rmi local",
-    "operations": "./src/Commanders/operations.js"
+    "operations": "./src/Commanders/operations.js",
+    "seed": "./src/db/seed.js"
   },
   "repository": {
     "type": "git",
