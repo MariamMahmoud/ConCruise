@@ -4,10 +4,8 @@
 let cruisers = require('./cruisers');
 let customers = require('./customers');
 const Users = require('../Models/user');
-const { coonectDB, connectDB } = require('../../test/Helpers/helper');
 
 const seed = async() => {
-	await connectDB();
 	cruisers = cruisers.map(cruiser => {
 		cruiser.matched = false;
 		cruiser.type = 'cruiser';
@@ -19,13 +17,15 @@ const seed = async() => {
 		customer.matched = false;
 		customer.type = 'rider';
 
-		return cruiser;
+		return customer;
 	});
-	await Users.insertMany(cruisers);
-	await Users.insertMany(customers);
 
-	console.log('Data Seeded Successfully!!');
-	process.exit(0);
+	const savedCruisers = await Users.insertMany(cruisers);
+	const savedCustomers = await Users.insertMany(customers);
+
+	console.log(
+		`Data Seeded Successfully!! Inserted ${savedCustomers.length} customers and  ${savedCruisers.length} Cruiser.`
+	);
 };
 
 seed();

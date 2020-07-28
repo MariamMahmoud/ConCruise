@@ -14,3 +14,8 @@ So the bottle neck is in the matching algorithm, in this project I used the brut
 
 ## Tests
 Unit tests in this project are not for delivery purposes but just for development to ensure code is behaving as expected at least in happy scenarios
+
+## Usage
+- Use docker-compose up to run the container, this will open the server,and connect the DB and the api will be available on localhost:8080
+- Run `node ./src/db/seed.js` to seed your data
+- Use exposed commander to run your commands
