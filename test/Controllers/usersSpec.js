@@ -10,14 +10,19 @@ describe('Controllers/Users', () => {
 		rating: 4,
 		number_of_rides: 1,
 		current_location: {
-			lat: 30.0476519,
-			long: 31.4570441,
+			latitude: 30.0476519,
+			longitude: 31.4570441,
 		},
+		matched: false,
 	};
 
 	before(async() => {
 		// TODO: flush db
-		await connectDB();
+		// await connectDB();
+	});
+
+	after(async() => {
+		// TODO: Disconnect DB
 	});
 
 	it('should insert user', async() =>{
@@ -27,7 +32,7 @@ describe('Controllers/Users', () => {
 		expect(
 			_.pick(
 				response._doc,
-				['full_name', 'type', 'rating', 'number_of_rides', 'current_location'],
+				['full_name', 'type', 'rating', 'number_of_rides', 'current_location', 'matched'],
 			),
 		).to.deep.equal(testUser);
 
@@ -55,4 +60,6 @@ describe('Controllers/Users', () => {
 
 		return expect(response.deletedCount).to.equal(idsToBeDeleted.length);
 	});
+
+	// TODO: schema validation cases
 });

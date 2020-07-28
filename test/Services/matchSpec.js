@@ -32,7 +32,7 @@ describe('Services/match', () => {
 
 	before(async() => {
 		// TODO: flush db
-		await connectDB();
+		// await connectDB();
 		// Create a pool of riders and cruisers
 		new Array(4).fill(1).forEach(async() => {
 			await usersController.create(rider);
