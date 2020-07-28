@@ -5,43 +5,42 @@
 const { Command } = require('commander');
 const usersController = require('../Controllers/users');
 const match = require('../Services/match');
-
+const { connectDB } = require('../../test/Helpers/helper');
 const program = new Command();
 program.version('1.0.0');
-program
-	.option('--manual', 'Display all available options')
-	.option('--customer', 'Show existing list of customers')
-	.option('--cruiser', 'Show existing list of cruisers')
-	.option('--match', 'Display matching results')
-	.option('--exit', 'Kill the process');
 
 program
-	.command('--manual')
+	.command('manual')
 	.description('Display all available options')
 	.action(() => {
-		console.log(program.opts());
+		console.log(program.commands.map(cmd => `name: ${cmd.name()}, description: ${cmd.description()}`));
 	});
 
 program
-	.command('--customer')
+	.command('customer')
 	.description('Show existing list of customers')
 	.action(async() => {
+		await connectDB();
 		const customers = await usersController.findByQuery({ type: 'rider'});
 		console.log(JSON.stringify(customers, null, 2));
+		process.exit(0);
 	});
 
 program
-	.command('--cruiser')
+	.command('cruiser')
 	.description('Show existing list of cruisers')
 	.action(async() => {
+		await connectDB();
 		const customers = await usersController.findByQuery({ type: 'cruiser'});
 		console.log(JSON.stringify(customers, null, 2));
+		process.exit(0);
 	});
 
 program
-	.command('--match')
+	.command('match')
 	.description('Display matching results')
 	.action(async() => {
+		await connectDB();
 		const matches = await match();
 		const nonMatchingCustomers = await usersController.findByQuery({ type: 'rider', matching: false });
 		const nonMatchingCruisers = await usersController.findByQuery({ type: 'cruisers', matching: false });
@@ -53,11 +52,11 @@ program
 		};
 
 		console.log(JSON.stringify(responseObject, null, 2));
-
+		process.exit(0);
 	});
 
 program
-	.command('--exit')
+	.command('exit')
 	.description('Kill the process')
 	.action(() => {
 		process.exit(0);

@@ -10,7 +10,8 @@
     "lint-fix": "./node_modules/.bin/eslint . --fix",
     "docker-build": "docker-compose up --build",
     "docker-bash": "docker exec -it concruse_web_1 bash",
-    "docker-down": "docker-compose down --rmi local"
+    "docker-down": "docker-compose down --rmi local",
+    "operations": "./src/Commanders/operations.js"
   },
   "repository": {
     "type": "git",
