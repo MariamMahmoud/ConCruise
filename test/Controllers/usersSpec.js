@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const usersController = require('../../src/Controllers/users');
-const { expect, connectDB } = require('../Helpers/helper');
+const { expect, connectDB, disconnectDB, flushDB } = require('../Helpers/helper');
 const _ = require('lodash');
 
 describe('Controllers/Users', () => {
@@ -17,12 +17,15 @@ describe('Controllers/Users', () => {
 	};
 
 	before(async() => {
-		// TODO: flush db
-		// await connectDB();
+		await connectDB();
+		await setTimeout(() => {}, 10000);
+		await flushDB();
+		await setTimeout(() => {}, 10000);
+
 	});
 
 	after(async() => {
-		// TODO: Disconnect DB
+		await disconnectDB();
 	});
 
 	it('should insert user', async() =>{
@@ -61,5 +64,6 @@ describe('Controllers/Users', () => {
 		return expect(response.deletedCount).to.equal(idsToBeDeleted.length);
 	});
 
+	it('should find user based on query');
 	// TODO: schema validation cases
 });
