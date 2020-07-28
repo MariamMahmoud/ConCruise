@@ -10,8 +10,9 @@ services:
       - ./src/config/.env
     depends_on:
       - mongo
+    volumes:
+      - "./:/usr/src/app"
   mongo:
     image: mongo
     restart: always
-    ports:
-      - "27017:27018"
+
