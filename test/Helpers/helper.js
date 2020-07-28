@@ -1,6 +1,6 @@
 'use strict';
 
-const Users = require('../Models/user');
+const Users = require('../../src/Models/user');
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
