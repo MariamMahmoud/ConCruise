@@ -9,7 +9,7 @@ jobs:
     executor:
       name: node/default
     environment: 
-      - MONGO_URL: "mongodb://localhost:27017/conCruse-db"
+      - MONGO_URL: "mongodb://localhost:27017/conCruise-db"
     steps:
       - checkout
       - node/with-cache:

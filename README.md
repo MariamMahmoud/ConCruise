@@ -1,5 +1,5 @@
-# ConCruse
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/MariamMahmoud/ConCruse)
+# ConCruise
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=shield)](https://circleci.com/gh/MariamMahmoud/ConCruise)
 
 ## About this solution
 So the bottle neck is in the matching algorithm, in this project I used the brute force way to match, which is okay for small data sets, however in real life applications this is not practical and will cause multiple issues. So here are some suggestions:

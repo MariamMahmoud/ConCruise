@@ -1,5 +1,5 @@
 {
-  "name": "ConCruse",
+  "name": "ConCruise",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,21 +9,21 @@
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint . --fix",
     "docker-build": "docker-compose up --build",
-    "docker-bash": "docker exec -it concruse_web_1 bash",
+    "docker-bash": "docker exec -it concruise_web_1 bash",
     "docker-down": "docker-compose down --rmi local",
     "operations": "./src/Commanders/operations.js",
     "seed": "./src/db/seed.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MariamMahmoud/ConCruse.git"
+    "url": "git+https://github.com/MariamMahmoud/ConCruise.git"
   },
   "author": "MariamMahmoud",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MariamMahmoud/ConCruse/issues"
+    "url": "https://github.com/MariamMahmoud/ConCruise/issues"
   },
-  "homepage": "https://github.com/MariamMahmoud/ConCruse#readme",
+  "homepage": "https://github.com/MariamMahmoud/ConCruise#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "commander": "^6.0.0",
