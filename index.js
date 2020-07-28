@@ -1,2 +1,5 @@
-// TODO: export your stuff
-module.exports = {};
+'use strict';
+
+module.exports = {
+	operationsCommander: require('./src/Commanders/operations'),
+};
