@@ -5,7 +5,7 @@
 const { Command } = require('commander');
 const usersController = require('../Controllers/users');
 const match = require('../Services/match');
-const { connectDB } = require('../../test/Helpers/helper');
+const { connectDB, disconnectDB } = require('../../test/Helpers/helper');
 const program = new Command();
 program.version('1.0.0');
 
@@ -58,7 +58,8 @@ program
 program
 	.command('exit')
 	.description('Kill the process')
-	.action(() => {
+	.action(async() => {
+		await disconnectDB();
 		process.exit(0);
 	});
 
